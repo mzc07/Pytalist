@@ -1,6 +1,6 @@
 import argparse
 import pathlib
-from validate import validate_file, validate_content
+from pytalist.validate import validate_file, validate_content
 
 
 def build_parser():
@@ -25,11 +25,9 @@ def main():
     parser = build_parser()
     argumentos_usuario = parser.parse_args()
 
-    if validate_file(argumentos_usuario.csv_file) is True:
+    if validate_file(argumentos_usuario.csv_file):
         print(f"Validacion exitosa, {argumentos_usuario.csv_file.name} es un archivo")
-        validate_content(argumentos_usuario.csv_file)
-    else:
-        raise
+        print(validate_content(argumentos_usuario.csv_file))
 
 
 if __name__ == "__main__":

@@ -27,5 +27,9 @@ def validate_content(archivo_csv: pathlib.Path):
             raise ValueError("Error: El Archivo CSV esta vacio")
 
         headers_file = index_file.keys()
+
         for header in headers_file:
             print(header)
+        for elemento in index_file.items():
+            print(elemento)
+        return True
